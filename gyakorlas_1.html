@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript alapok</title>
+  <link rel="stylesheet" href="gyakorlas_1.css">
+
+  <script>
+    var masodperc = 10;
+
+    // vizsgálat - csak akkor indul, ha semmmi vagy 'Kezdődjön a móka' az érték
+
+    function inditas() {
+      document.urlap.gomb.disabled = true;
+      document.urlap.gomb.value = 'Várj...';
+      vissza();
+    }
+    // függvény visszaszámlásás
+
+    function vissza() {
+      if (masodperc > 0) {
+        document.urlap.szamlalo.value = masodperc;
+        //masodperc = masodperc - 1;
+        masodperc -= 1;
+        setTimeout('vissza()', 1000);
+      } else {
+        document.urlap.szamlalo.value = 'Kezdödjön a móka :)';
+        setTimeout('alaphelyzet()', 2000);
+      }
+    }
+
+    function alaphelyzet() {
+      document.urlap.szamlalo.value = '';
+      document.urlap.gomb.disabled = false;
+      document.urlap.gomb.value = 'START';
+      masodperc = 10;
+    }
+
+  </script>
+
+</head>
+
+<body id="vaszon">
+
+  <div id="">
+
+
+    <form name="urlap" id="urlap">
+
+
+      <p id="uzenet">
+
+
+
+        <input id="gomb" name="gomb" type="button" value="START" onclick="inditas()">
+
+
+        <br>
+        
+        <input name="szamlalo" value="" id="szamlalo" readonly>
+
+
+        <br><br>
+
+      </p>
+
+
+    </form>
+
+  </div>
+
+</body>
+
+</html>
